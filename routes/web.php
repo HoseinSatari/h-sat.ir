@@ -16,8 +16,13 @@ use niklasravnsborg\LaravelPdf\Facades\Pdf;
 |
 */
 
-
-Route::get('/', \App\Http\Livewire\Index::class)->name('home');
+Route::get('/' , function (){
+    return view('first_page');
+});
+Route::get('/Category' , function (){
+    return view('cat_page');
+})->name('cat');
+Route::get('/home', \App\Http\Livewire\Index::class)->name('home');
 Route::get('/blog', \App\Http\Livewire\Blog\Index::class)->name('blog');
 Route::get('/blog/{slug}', \App\Http\Livewire\Blog\Single::class)->name('single');
 
