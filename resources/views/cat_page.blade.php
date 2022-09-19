@@ -547,7 +547,7 @@ https://medium.com/@AmJustSam
 <body>
 
 <div class="all">
-    @foreach(\App\Models\Category::where('is_active' , 1)->get() as $cat)
+    @foreach(\App\Models\Category::where('is_active' , 1)->orderBy('order_number' , 'asc')->get() as $cat)
     <a href="{{route('blog')}}?category={{$cat->slug}}" ><button class="button-64" role="button" style="margin-bottom: 2rem"><span class="text">{{$cat->title}} ({{$cat->articles()->count()}})</span></button></a>
     @endforeach
 </div>
